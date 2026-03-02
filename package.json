@@ -1,0 +1,25 @@
+{
+  "name": "final_project",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/vin2603/MERN---Final-Project#readme",
+  "bugs": {
+    "url": "https://github.com/vin2603/MERN---Final-Project/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vin2603/MERN---Final-Project.git"
+  },
+  "license": "ISC",
+  "author": "Vincent Le",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon backend/server.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14"
+  }
+}
