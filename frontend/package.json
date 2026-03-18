@@ -4,19 +4,21 @@
   "private": true,
   "proxy": "http://127.0.0.1:5000",
   "dependencies": {
+    "@chakra-ui/icons": "^2.2.4",
     "@chakra-ui/react": "^2.10.9",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@testing-library/dom": "^10.4.1",
-    "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/react": "^16.3.2",
-    "@testing-library/user-event": "^13.5.0",
     "axios": "^1.13.6",
     "framer-motion": "^12.34.3",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
+    "react-lottie": "^1.2.10",
+    "react-notification-badge": "^1.5.1",
     "react-router-dom": "^5.3.4",
     "react-scripts": "5.0.1",
+    "react-scrollable-feed": "^2.0.4",
+    "socket.io-client": "^4.8.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -41,6 +43,22 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "@chakra-ui/utils/context": "<rootDir>/node_modules/@chakra-ui/utils/dist/cjs/context.cjs",
+      "@chakra-ui/icons": "<rootDir>/src/tests/__mocks__/@chakra-ui/icons.js",
+      "react-scrollable-feed": "<rootDir>/src/tests/__mocks__/react-scrollable-feed.js",
+      "react-notification-badge": "<rootDir>/src/tests/__mocks__/react-notification-badge.js"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!(axios)/)"
     ]
   }
 }
