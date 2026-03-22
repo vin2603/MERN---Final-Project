@@ -15,7 +15,9 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon backend/server.js",
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "build": "npm install && cd frontend && npm install && npm run build",
     "test": "jest --testEnvironment node --forceExit --detectOpenHandles",
     "test:verbose": "jest --testEnvironment node --forceExit --detectOpenHandles --verbose"
   },
