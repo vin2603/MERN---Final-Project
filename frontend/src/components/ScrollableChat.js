@@ -1,6 +1,6 @@
 import { Avatar } from '@chakra-ui/react';
 import { Tooltip } from '@chakra-ui/react';
-import ScrollableFeed from 'react-scrollable-feed';
+import { useEffect, useRef } from 'react';
 import {
   isLastMessage,
   isSameSender,
@@ -11,9 +11,16 @@ import { ChatState } from '../Context/ChatProvider';
 
 const ScrollableChat = ({ messages }) => {
   const { user } = ChatState();
+  const bottomRef = useRef(null);
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
 
   return (
-    <ScrollableFeed>
+    <div
+      style={{ overflowY: 'auto', display: 'flex', flexDirection: 'column' }}
+    >
       {messages &&
         messages.map((m, i) => (
           <div style={{ display: 'flex' }} key={m._id}>
@@ -41,7 +48,6 @@ const ScrollableChat = ({ messages }) => {
                 maxWidth: '75%',
               }}
             >
-              {/* ← show sender name only for first message in a group */}
               {!isSameUser(messages, m, i, user._id) &&
                 m.sender._id !== user._id && (
                   <span
@@ -69,7 +75,9 @@ const ScrollableChat = ({ messages }) => {
             </div>
           </div>
         ))}
-    </ScrollableFeed>
+      {/* Auto-scroll anchor */}
+      <div ref={bottomRef} />
+    </div>
   );
 };
 
