@@ -101,8 +101,12 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     socket = io(ENDPOINT);
     socket.emit('setup', user);
     socket.on('connected', () => setSocketConnected(true));
-    socket.on('typing', () => setIsTyping(true));
-    socket.on('stop typing', () => setIsTyping(false));
+    socket.on('typing', (room) => {
+      if (room === selectedChat?._id) setIsTyping(true);
+    });
+    socket.on('stop typing', (room) => {
+      if (room === selectedChat?._id) setIsTyping(false);
+    });
     // eslint-disable-next-line
   }, []);
 
