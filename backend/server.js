@@ -61,8 +61,10 @@ if (process.env.NODE_ENV !== 'test') {
       socket.join(room);
       console.log('User Joined Room: ' + room);
     });
-    socket.on('typing', (room) => socket.in(room).emit('typing'));
-    socket.on('stop typing', (room) => socket.in(room).emit('stop typing'));
+    socket.on('typing', (room) => socket.in(room).emit('typing', room));
+    socket.on('stop typing', (room) =>
+      socket.in(room).emit('stop typing', room)
+    );
 
     socket.on('new message', (newMessageRecieved) => {
       var chat = newMessageRecieved.chat;
