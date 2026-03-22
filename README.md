@@ -1,6 +1,10 @@
 # MERN Chat App
 
-This is a full-stack chatting application that enables real-time communication between users. It uses Socket.io for instant messaging and stores user data securely in a MongoDB database with encryption.
+A full-stack chatting application that enables real-time communication between users. It uses Socket.io for instant messaging and stores user data securely in a MongoDB database with encryption.
+
+🚀 **Live Demo:** [https://mern-final-project-o1dv.onrender.com](https://mern-final-project-o1dv.onrender.com)
+
+> Note: The app is hosted on Render's free tier. If it hasn't been used recently, the first load may take 30-60 seconds to spin up.
 
 ---
 
@@ -18,45 +22,53 @@ Clone the project:
 
 ```bash
 git clone https://github.com/vin2603/MERN---Final-Project
+```
 
 Go to the project directory:
 
-cd mern-chat-app
+```bash
+cd MERN---Final-Project
+```
 
 Install dependencies:
 
+```bash
 npm install
-cd frontend/
+cd frontend
 npm install
+```
 
 Start the server:
 
-npm run start
+```bash
+npm run server
+```
 
 Start the client:
 
+```bash
 cd frontend
 npm start
-Features
-Authentication
-
-User registration and login with secure credential storage
-
-Real-Time Chatting
-
-Instant messaging using Socket.io
-
-Typing indicators for active conversations
-
-One-to-One Chat
-
-Search Users
-
-Find and connect with other users
-
-Group Chats
-
-Create group chats
-
-Add or remove users from groups
 ```
+
+---
+
+## Features
+
+### Authentication
+
+- User registration and login with secure credential storage
+
+### Real-Time Chatting
+
+- Instant messaging using Socket.io
+- Typing indicators for active conversations
+
+### One-to-One Chat
+
+- Search and connect with other users
+
+### Group Chats
+
+- Create group chats
+- Add or remove users from groups
