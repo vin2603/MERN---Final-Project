@@ -98,9 +98,9 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   };
 
   useEffect(() => {
-    socket = io(ENDPOINT);
-    socket.emit('setup', user);
-    socket.on('connected', () => setSocketConnected(true));
+    if (!socket) return;
+    socket.off('typing');
+    socket.off('stop typing');
     socket.on('typing', (room) => {
       if (room === selectedChat?._id) setIsTyping(true);
     });
@@ -108,7 +108,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       if (room === selectedChat?._id) setIsTyping(false);
     });
     // eslint-disable-next-line
-  }, []);
+  }, [selectedChat]);
 
   useEffect(() => {
     fetchMessages();
