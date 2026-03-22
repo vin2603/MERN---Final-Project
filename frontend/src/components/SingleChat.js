@@ -96,6 +96,12 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       }
     }
   };
+  useEffect(() => {
+    socket = io(ENDPOINT);
+    socket.emit('setup', user);
+    socket.on('connected', () => setSocketConnected(true));
+    // eslint-disable-next-line
+  }, []);
 
   useEffect(() => {
     if (!socket) return;
