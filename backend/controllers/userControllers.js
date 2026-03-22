@@ -100,8 +100,8 @@ const updateProfile = asyncHandler(async (req, res) => {
     throw new Error('User not found');
   }
 
+  await user.updateOne({ name: name.trim() });
   user.name = name.trim();
-  await user.save();
 
   res.json({
     _id: user._id,
